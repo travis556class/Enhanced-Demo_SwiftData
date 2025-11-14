@@ -1,24 +1,30 @@
 //
 //  ContentView.swift
-//  Enhanced Demo_SwiftData
+//  Demo_SwiftData
 //
-//  Created by Paradis d'Abbadon on 13.11.25.
+//  Created by Travis Earl Montgomery on 11/12/25.
 //
 
 import SwiftUI
+import SwiftData
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        TabView {
+            BookListView()
+                .tabItem {
+                    Label("Library", systemImage: "books.vertical")
+                }
+            
+            AddBookView()
+                .tabItem {
+                    Label("Add Book", systemImage: "plus.circle")
+                }
         }
-        .padding()
     }
 }
 
 #Preview {
     ContentView()
+        .modelContainer(for: Book.self)
 }

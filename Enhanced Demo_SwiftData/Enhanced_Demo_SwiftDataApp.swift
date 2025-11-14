@@ -1,17 +1,30 @@
 //
-//  Enhanced_Demo_SwiftDataApp.swift
-//  Enhanced Demo_SwiftData
+//  Demo_SwiftDataApp.swift
+//  Demo_SwiftData
 //
-//  Created by Paradis d'Abbadon on 13.11.25.
+//  Created by Travis Earl Montgomery on 11/12/25.
+//  Enhanced version with HIG compliance
 //
 
 import SwiftUI
+import SwiftData
 
 @main
-struct Enhanced_Demo_SwiftDataApp: App {
+struct Demo_SwiftDataApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
         }
+        .modelContainer(for: Book.self)
+    }
+    
+    init() {
+        print(URL.applicationSupportDirectory.path(percentEncoded: false))
     }
 }
+
+#Preview("Content View") {
+    ContentView()
+        .modelContainer(for: Book.self)
+}
+
